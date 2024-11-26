@@ -15,7 +15,7 @@ A simple blog application built using the Django web framework. This platform al
 
 ```
 django_blog/
-├── blog_project/            # Main project folder
+├── blogProject/            # Main project folder
 │   ├── settings.py          # Django project settings
 │   ├── urls.py              # Project-level URL routing
 │   └── ...
@@ -24,10 +24,10 @@ django_blog/
 │   ├── views.py             # View functions
 │   ├── urls.py              # App-specific URL routing
 │   ├── templates/           # HTML templates
-│   │   └── blog/            # Blog-specific templates
-│   │       ├── post_list.html
-│   │       ├── post_detail.html
-│   │       └── create_post.html
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── sidebar.html
+│   │   └── post_details.html
 │   └── ...
 ├── manage.py                # Django management script
 └── ...
