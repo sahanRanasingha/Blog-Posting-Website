@@ -1,0 +1,32 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+blog_env/
+
+# Django migrations
+*/migrations/*
+
+# Django secret key
+.env
+
+# Database files
+db.sqlite3
+
+# Static files
+/static/
+
+# Media files
+/media/
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
