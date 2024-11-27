@@ -1,15 +1,56 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
+    <!-- Blog Post Content -->
+    <div class="col-md-8 card mb-4 mt-3 left top">
       <div class="card-body">
-        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-        <p class="card-text ">{{ object.content | safe }}</p>
+        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+        <p class="text-muted">{{ post.author }} | {{ post.created_on }}</p>
+        <p class="card-text">{{ post.content | safe }}</p>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="card-body">
+        <h4>Comments</h4>
+        {% for comment in comments %}
+          <div class="card mb-3 p-3">
+            <strong>{{ comment.name }}</strong>
+            <p class="mb-1">{{ comment.body }}</p>
+            <small class="text-muted">{{ comment.created_on }}</small>
+          </div>
+        {% empty %}
+          <p>No comments yet. Be the first to comment!</p>
+        {% endfor %}
+      </div>
+
+      <!-- Comment Form -->
+      <div class="card-body">
+        <h4>Leave a Comment</h4>
+        {% if new_comment %}
+          <p class="alert alert-success">Your comment has been submitted and is awaiting approval.</p>
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <input type="text" name="name" class="form-control" placeholder="Your Name" value="{{ comment_form.name.value|default:'' }}">
+          </div>
+          <div class="mb-3">
+            <input type="email" name="email" class="form-control" placeholder="Your Email" value="{{ comment_form.email.value|default:'' }}">
+          </div>
+          <div class="mb-3">
+            <textarea name="body" class="form-control" placeholder="Your Comment" rows="4">{{ comment_form.body.value|default:'' }}</textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
-    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+
+    <!-- Sidebar -->
+    {% block sidebar %}
+      {% include 'sidebar.html' %}
+    {% endblock sidebar %}
   </div>
 </div>
 
