@@ -6,6 +6,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
+    fields = ('title', 'slug', 'author', 'content', 'banner_image', 'status') 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
