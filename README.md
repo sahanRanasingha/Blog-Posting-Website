@@ -7,7 +7,6 @@ A simple blog application built using the Django web framework. This platform al
 
 - **Admin-Only Blog Creation**: Only admin or staff users can create and manage blog posts.
 - **Visitor-Friendly Interface**: Visitors can view all posts without the need to log in.
-- **Categories and Tags**: Posts can be categorized and tagged for better organization.
 - **Comment Section**: Readers can comment on posts (optional feature).
 - **Modern Design**: Clean and user-friendly interface for easy navigation.
 
